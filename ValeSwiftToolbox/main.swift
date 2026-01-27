@@ -7,7 +7,8 @@
 
 import Foundation
 
-//// Безопасный ввод Double с подсказкой
+// MARK: - Безопасный ввод Double с подсказкой
+
 public func safeDoubleInput(prompt: String) -> Double? {
     print(prompt)
     guard let input = readLine(),
@@ -18,7 +19,7 @@ public func safeDoubleInput(prompt: String) -> Double? {
     return value
 }
 
-/// Безопасный ввод Int с подсказкой
+// MARK: - Безопасный ввод Int с подсказкой
 public func safeIntInput(prompt: String) -> Int? {
     print(prompt)
     guard let input = readLine(),
@@ -29,7 +30,7 @@ public func safeIntInput(prompt: String) -> Int? {
     return value
 }
 
-/// Безопасный ввод непустой строки
+// MARK: - Безопасный ввод непустой строки
 public func safeStringInput(prompt: String) -> String? {
     print(prompt)
     guard let input = readLine(),
@@ -40,7 +41,7 @@ public func safeStringInput(prompt: String) -> String? {
     return input.trimmingCharacters(in: .whitespaces)
 }
 
-// Полный демо toolbox'а
+// MARK: - Полный демо toolbox'а
 print("🚀 === ValeSwiftToolbox v1.0 ===\n")
 
 let name = safeStringInput(prompt: "👋 Имя: ")
@@ -59,3 +60,4 @@ if let cost = price {
 }
 
 print("\n✨ Все функции протестированы!")
+print("🛠️ Готово к копипасту в любой Swift проект!")
