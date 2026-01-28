@@ -1,62 +1,32 @@
 //
 //  main.swift
 //  ValeSwiftToolbox
-
-//  Created by Валерия Пономарева on 27.01.2026.
-
 import Foundation
 
-// MARK: - Безопасный ввод Double с подсказкой
+print("🚀 === ValeSwiftToolbox v1.1 ===\n")
 
-public func safeDoubleInput(prompt: String) -> Double? {
-    print(prompt)
-    guard let input = readLine(),
-          let value = Double(input.trimmingCharacters(in: .whitespaces)) else {
-        print("❌ Incorrect number format")
-        return nil
-    }
-    return value
+// 🧪 Тесты с НОВЫМИ именами переменных
+print("🧪 InputHelpers:")
+let inputName = safeStringInput(prompt: "👋 Имя: ")
+if let resultName = inputName { print("✅ Привет, \(resultName)!") }
+
+let inputAge = safeIntInput(prompt: "📅 Возраст: ")
+if let resultAge = inputAge { print("✅ Тебе \(resultAge) лет") }
+
+let inputPrice = safeDoubleInput(prompt: "💰 Цена: ")
+if let resultPrice = inputPrice { print("✅ Итого: \(resultPrice) руб.") }
+
+// 🧪 User тест (firstName/lastName НЕ конфликтуют)
+print("\n🧪 User модель:")
+guard let firstName = safeStringInput(prompt: "👤 Имя:"),
+      let lastName = safeStringInput(prompt: "👤 Фамилия:"),
+      let weight = safeDoubleInput(prompt: "⚖️ Вес:"), weight > 0 else {
+    print("❌ Ошибка!")
+    exit(1)
 }
 
-// MARK: - Безопасный ввод Int с подсказкой
-public func safeIntInput(prompt: String) -> Int? {
-    print(prompt)
-    guard let input = readLine(),
-          let value = Int(input.trimmingCharacters(in: .whitespaces)) else {
-        print("❌ Incorrect integer format")
-        return nil
-    }
-    return value
-}
+let user = User(name: firstName, surname: lastName, weight: weight)
+print(user.description)
 
-// MARK: - Безопасный ввод непустой строки
-public func safeStringInput(prompt: String) -> String? {
-    print(prompt)
-    guard let input = readLine(),
-          !input.trimmingCharacters(in: .whitespaces).isEmpty else {
-        print("❌ Пустая строка недопустима")
-        return nil
-    }
-    return input.trimmingCharacters(in: .whitespaces)
-}
+print("\n✨ Готово!")
 
-// MARK: - Полный демо toolbox'а
-print("🚀 === ValeSwiftToolbox v1.0 ===\n")
-
-let name = safeStringInput(prompt: "👋 Имя: ")
-if let userName = name {
-    print("✅ Привет, \(userName)!")
-}
-
-let age = safeIntInput(prompt: "📅 Возраст: ")
-if let years = age {
-    print("✅ Тебе \(years) лет")
-}
-
-let price = safeDoubleInput(prompt: "💰 Цена: ")
-if let cost = price {
-    print("✅ Итого: \(cost) руб.")
-}
-
-print("\n✨ Все функции протестированы!")
-print("🛠️ Готово к копипасту в любой Swift проект!")
