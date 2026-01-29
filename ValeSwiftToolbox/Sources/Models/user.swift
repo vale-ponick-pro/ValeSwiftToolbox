@@ -15,7 +15,7 @@ public struct User {
     public let weight: Double
     
     public var description: String {
-        let formattedWeight = String(format: "%.1f kg", weight)
+        let formattedWeight = String(format: "%.1f kg", weight)  // Было 99.99 → 100.0
         return """
         \(name)
         \(surname)

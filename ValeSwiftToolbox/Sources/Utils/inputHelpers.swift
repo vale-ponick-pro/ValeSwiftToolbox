@@ -32,12 +32,12 @@ public func safeIntInput(prompt: String) -> Int? {
 
 // MARK: - Безопасный ввод непустой строки
 public func safeStringInput(prompt: String) -> String? {
-    print(prompt)
-    guard let input = readLine(),
-          !input.trimmingCharacters(in: .whitespaces).isEmpty else {
-        print("❌ Пустая строка недопустима")
-        return nil
+    while true {
+        print(prompt, terminator: "")
+        if let input = readLine()?.trimmingCharacters(in: .whitespacesAndNewlines),
+           !input.isEmpty {
+            return input
+        }
+        print("❌ Введите непустую строку!")
     }
-    return input.trimmingCharacters(in: .whitespaces)
 }
-
