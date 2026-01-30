@@ -1,38 +1,38 @@
 //
 //  main.swift
-//  ValeSwiftToolbox
+//  ValeSwiftToolbox v1.2
+//  Created by Валерия Пономарева
+
 import Foundation
 
-print("🚀 === ValeSwiftToolbox v1.1 ===\n")
+print("🚀 === ValeSwiftToolbox v1.2 ===\n")
 
-// 🧪 Тесты с НОВЫМИ именами переменных
-// Замени блок тестов InputHelpers:
+// 🧪 1. InputHelpers (safe* функции)
 print("🧪 InputHelpers:")
-let inputName = safeStringInput(prompt: "👋 Имя: ")
-if let resultName = inputName?.trimmingCharacters(in: .whitespaces) {
-    print("✅ Привет, \(resultName)!")
+if let name = safeStringInput(prompt: "Имя: ") {
+    print("✅ Привет, \(name)!")
 }
 
-let inputAge = safeIntInput(prompt: "📅 Возраст: ")
-if let resultAge = inputAge { print("✅ Тебе \(resultAge) лет") }
-
-let inputPrice = safeDoubleInput(prompt: "💰 Цена: ")
-if let resultPrice = inputPrice {
-    let formattedPrice = String(format: "%.2f руб.", resultPrice)
-    print("✅ Итого: \(formattedPrice)")
+if let age = safeIntInput(prompt: "📅 Возраст: ") {
+    print("✅ Тебе \(age) лет")
 }
 
-// 🧪 User тест (firstName/lastName НЕ конфликтуют)
+if let price = safeDoubleInput(prompt: "💰 Доход: ") {
+    print("✅ Итого: \(String(format: "%.2f руб.", price))")
+}
+
+// 🧪 2. User модель
 print("\n🧪 User модель:")
-guard let firstName = safeStringInput(prompt: "👤 Имя: "),
-      let lastName = safeStringInput(prompt: "👤 Фамилия: "),
-      let weight = safeDoubleInput(prompt: "⚖️ Вес (кг): ") else {
-    print("❌ Ошибка!")
-    exit(1)
+if let firstName = safeStringInput(prompt: "👤 Имя: "),
+   let lastName = safeStringInput(prompt: "👤 Фамилия: "),
+   let weight = safeDoubleInput(prompt: "⚖️ Вес (кг): ") {
+    let user = User(name: firstName, surname: lastName, weight: weight)
+    print(user.description)
+} else {
+    print("❌ Ошибка ввода!")
 }
 
-let user = User(name: firstName, surname: lastName, weight: weight)
-print(user.description)
+BirthYearTask.run()  // ← ПРОСТО!
 
-print("\n✨ Готово!")
-
+print("\n✨ ✅ Все модули протестированы!")
+print("🛠️ Готово к использованию в любых Swift CLI проектах!")
