@@ -12,7 +12,7 @@ public func safeDoubleInput(prompt: String) -> Double? {
     fflush(stdout)
     guard let input = readLine(),
           let value = Double(input.trimmingCharacters(in: .whitespaces)) else {
-        print("❌ Incorrect number format")
+        print("❌ Invalid number format!")
         return nil
     }
     return value
@@ -24,7 +24,7 @@ public func safeIntInput(prompt: String) -> Int? {
     fflush(stdout)
     guard let input = readLine(),
           let value = Int(input.trimmingCharacters(in: .whitespaces)) else {
-        print("❌ Incorrect integer format")
+        print("❌ Invalid integer format!")
         return nil
     }
     return value
@@ -39,7 +39,7 @@ public func safeStringInput(prompt: String) -> String? {
            !input.isEmpty {
             return input
         }
-        print("❌ Неверный ввод!")
+        print("❌ Invalid input!")
     }
 }
 
