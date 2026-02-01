@@ -39,6 +39,27 @@ public func safeStringInput(prompt: String) -> String? {
            !input.isEmpty {
             return input
         }
-        print("❌ Введите непустую строку!")
+        print("❌ Неверный ввод!")
     }
+}
+
+// MARK: - String Comparisons (новый раздел)
+public extension String {
+    /// Проверка Swift игнорируя регистр (unicode-safe)
+    var isSwift: Bool {
+        caseInsensitiveCompare("swift") == .orderedSame
+    }
+    
+    /// Универсальное сравнение без учета регистра
+    func isEqual(to other: String) -> Bool {
+        caseInsensitiveCompare(other) == .orderedSame
+    }
+}
+
+// MARK: - Language Checker
+/// Проверяет любимый язык программирования
+/// - Parameter language: Ввод пользователя
+/// - Returns: "SWIFT" если Swift, иначе "OTHER"
+public func chooseFavoriteLanguage(_ language: String) -> String {
+    language.isSwift ? "SWIFT" : "OTHER"
 }
