@@ -7,34 +7,32 @@
 
 import Foundation
 
-// 📱 XCODE CONSOLE: HARDCODE (НЕ зависает!)
-// 🖥️ TERMINAL: раскомментируй safeStringInput()
+// ✅ Новый templateCLI.swift (switch версия):
 
 public func task_TEMPLATE() {
-    // printHeader() → замена:
-    print("📋 ЗАДАЧА TEMPLATE: Описание задачи")
+    print("📋 ЗАДАЧА TEMPLATE")
     
-    // ✅ PRIMER: Task29 Black Theme
+    // INPUT
+    let input = "yes"  // 📱 Xcode (поменяй на "no"/"true"/"false")
     
-    // INPUT - XCODE: раскомментируй ЭТУ строку
-    let input = "true" // ← поменяй для теста Light
-    // 🖥️ TERMINAL: раскомментируй ЭТУ
-    // let input = safeStringInput(prompt: "Темная тема? ")
-    
-    // ОЧИСТКА
     let cleanInput = input.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
     
-    // ТВОЯ ЛОГИКА (пример Task29):
-     let isDark = cleanInput == "true"
-     print("✅ Тема: \(isDark ? "Темная🖤" : "Светлая☀️")")
-     
-     print("\nНажмите Enter...", terminator: "")
-     _ = readLine()
- }
+    // 🔥 SWITCH — ТВОЙ НОВЫЙ СТАНДАРТ!
+    switch cleanInput {
+    case "yes", "true", "1":      // ✅ Dark theme варианты
+        print("✅ Dark🖤")
+    case "no", "false", "0":      // ✅ Light theme варианты
+        print("✅ Light☀️")
+    default:
+        print("❌ Error! Варианты: yes/no, true/false, 1/0")
+    }
+    
+    print("\nНажмите Enter...", terminator: "")
+    _ = readLine()
+}
 
-/* КАК ИСПОЛЬЗОВАТЬ:
-1️⃣ Xcode → let input = "true"     ← АКТИВНО (без коммента)
-2️⃣ Terminal → let input = safe... ← В КОММЕНТАРИИ
-3️⃣ Меняй только ЛОГИКУ между trim и print → готово! 🚀 */
-
-
+/*
+ ✅ Множественные case ("yes", "true", "1") → Dark
+✅ Множественные case ("no", "false", "0") → Light
+✅ default ловит все ошибки
+✅ templateCLI = универсален для Task28/29/30/... */
