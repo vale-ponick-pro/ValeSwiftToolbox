@@ -35,17 +35,12 @@ if let firstName = safeStringInput(prompt: "👤 Имя: "),
 BirthYearTask.run()  // ← ПРОСТО!
 
 // === ДОБАВЬТЕ ЭТО ПЕРЕД ФИНАЛЬНЫМ PRINT ===
-print("\n" + String(repeating: "=", count: 40))
 print("☕ ТЕСТ: КОФЕЙНЯ VALE BREW")
-print("\n" + String(repeating: "=", count: 40))
 drinkOrder()
-print("\n" + String(repeating: "=", count: 40))
 
 print("\n✨ ✅ Все модули протестированы!")
 print("🛠️ Готово к использованию в любых Swift CLI проектах!")
 
-print("\n=== Тест processUser ===")
-processUser(name: "Vale", age: 25)
 
 /* 💎 Ты достигла MID-LEVEL!
  Что умеешь теперь:
