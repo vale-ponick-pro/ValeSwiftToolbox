@@ -19,9 +19,9 @@ public func task_TEMPLATE() {
     
     // 🔥 SWITCH — ТВОЙ НОВЫЙ СТАНДАРТ!
     switch cleanInput {
-    case "yes", "true", "1":      // ✅ Dark theme варианты
+    case "yes", "true", "1": // ✅ Dark theme варианты
         print("✅ Dark🖤")
-    case "no", "false", "0":      // ✅ Light theme варианты
+    case "no", "false", "0": // ✅ Light theme варианты
         print("✅ Light☀️")
     default:
         print("❌ Error! Варианты: yes/no, true/false, 1/0")
